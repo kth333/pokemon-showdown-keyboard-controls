@@ -3,7 +3,7 @@
     "name": "Pokémon Showdown Keyboard Controls",
     "version": "1.0",
     "description": "Adds keyboard controls to Pokémon Showdown.",
-    "permissions": ["activeTab"],
+    "permissions": ["activeTab", "declarativeContent", "storage"],
     "content_scripts": [
       {
         "matches": ["https://play.pokemonshowdown.com/*"],
