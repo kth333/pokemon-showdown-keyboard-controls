@@ -1,5 +1,4 @@
-// Define key mappings for selecting moves and switching Pokémon
-// Users can edit these mappings to their preference
+// Key mappings for selecting moves and switching Pokémon
 const moveKeyMappings = {
     '1': 0, // Select the first move
     '2': 1, // Select the second move
@@ -18,67 +17,62 @@ const switchKeyMappings = {
 
 // Function to handle key presses and select moves or switch Pokémon
 function handleKeyPress(event) {
-    // Get the pressed key
     const key = event.key.toLowerCase();
-
-    // Get the active element
-    const activeElement = document.activeElement;
-
-    // If Enter key is pressed, focus the chat input
-    if (key === 'enter') {
-        const chatInput = document.querySelector('.battle-log-add textarea');
-        if (chatInput) {
-            chatInput.focus();
-            event.preventDefault();
-        }
-        return;
-    }
-
-    // If Escape key is pressed, blur the chat input
-    if (key === 'escape') {
-        if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) {
-            activeElement.blur();
-            event.preventDefault();
-        }
-        return;
-    }
-
-    // Check if the chat input is focused
-    if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) {
-        // If the chat input is focused, do nothing
-        return;
-    }
+    console.log(`Key pressed: ${key}`);
 
     // Check if the pressed key corresponds to selecting a move
     if (key in moveKeyMappings) {
-        // Get the index of the move (0-indexed)
         const moveIndex = moveKeyMappings[key];
-
-        // Find the move button corresponding to the index
         const moveButton = document.querySelector(`.movemenu > button:nth-child(${moveIndex + 1})`);
-
-        // Check if the move button exists
         if (moveButton) {
-            // Simulate a click on the move button
+            console.log(`Clicking move button: ${moveIndex + 1}`);
             moveButton.click();
         }
     }
 
     // Check if the pressed key corresponds to switching Pokémon
     if (key in switchKeyMappings) {
-        // Get the index of the Pokémon (0-indexed)
         const pokemonIndex = switchKeyMappings[key];
-
-        // Find the Pokémon switch button corresponding to the index
         const pokemonSwitchButton = document.querySelector(`.switchmenu > button:nth-child(${pokemonIndex + 1})`);
-
-        // Check if the Pokémon switch button exists
         if (pokemonSwitchButton) {
-            // Simulate a click on the Pokémon switch button
+            console.log(`Clicking Pokémon switch button: ${pokemonIndex + 1}`);
             pokemonSwitchButton.click();
         }
     }
 }
 
+// Function to simulate a click on a given selector
+function simulateClick(selector) {
+    const element = document.querySelector(selector);
+    if (element) {
+        console.log(`Simulating click on ${selector}`);
+        element.dispatchEvent(new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        }));
+    } else {
+        console.log(`Element not found: ${selector}`);
+    }
+}
+
 // Add event listener for key presses
-document.addEventListener("keydown", handleKeyPress);
+document.addEventListener('keydown', function (event) {
+    // Check for Escape key
+    if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) {
+        console.log("Escape pressed, disabling chat...");
+        simulateClick('#header');
+        event.preventDefault();
+        return;
+    }
+
+    // Check for Enter key
+    if (event.key === "Enter" || event.keyCode === 13) {
+        console.log("Enter pressed, enabling chat...");
+        simulateClick('.battle-log');
+        event.preventDefault();
+        return;
+    }
+
+    handleKeyPress(event);
+});
