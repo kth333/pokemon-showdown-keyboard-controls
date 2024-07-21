@@ -1,4 +1,10 @@
 # Pokémon Showdown Keyboard Controls Extension
+![Magcargo](https://img.pokemondb.net/sprites/diamond-pearl/icon/magcargo.png)
+![Golem](https://img.pokemondb.net/sprites/diamond-pearl/icon/golem.png)
+![Staraptor](https://img.pokemondb.net/sprites/diamond-pearl/icon/staraptor.png)
+![Infernape](https://img.pokemondb.net/sprites/diamond-pearl/icon/infernape.png)
+![Luxray](https://img.pokemondb.net/sprites/diamond-pearl/icon/luxray.png)
+![Lanturn](https://img.pokemondb.net/sprites/diamond-pearl/icon/lanturn.png)
 
 A browser extension for Pokémon Showdown battle client that allows users to control the game using keyboard shortcuts.
 
