@@ -4,14 +4,14 @@
 ![Staraptor](https://img.pokemondb.net/sprites/diamond-pearl/icon/staraptor.png)
 ![Infernape](https://img.pokemondb.net/sprites/diamond-pearl/icon/infernape.png)
 ![Luxray](https://img.pokemondb.net/sprites/diamond-pearl/icon/luxray.png)
-![Lanturn](https://img.pokemondb.net/sprites/diamond-pearl/icon/lanturn.png)
+![Lanturn](https://img.pokemondb.net/sprites/diamond-pearl/icon/lanturn.png) 
 
-A browser extension for Pokémon Showdown battle client that allows users to control the game using keyboard shortcuts.
+A browser extension for Pokémon Showdown that allows you to play the game using your very own custom keyboard shortcuts.
 
 ## Features
 - Select moves using keys 1, 2, 3, 4.
 - Switch Pokémon using keys Z, X, C, V, B, N.
-- Edit the key mappings for the above controls.
+- Edit the key mappings for the above controls in content.js.
 - Enable chat by pressing Enter.
 - Disable chat by pressing Escape.
   
