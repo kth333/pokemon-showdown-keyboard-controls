@@ -41,36 +41,39 @@ function handleKeyPress(event) {
     }
 }
 
-// Function to simulate a click on a given selector
-function simulateClick(selector) {
-    const element = document.querySelector(selector);
-    if (element) {
-        console.log(`Simulating click on ${selector}`);
-        element.dispatchEvent(new MouseEvent('click', {
-            bubbles: true,
-            cancelable: true,
-            view: window
-        }));
-    } else {
-        console.log(`Element not found: ${selector}`);
+// Function to disable chat input by blurring it
+function disableChat() {
+    const chatInput = document.querySelector('.textbox');
+    if (chatInput) {
+        chatInput.blur(); // Removes focus from chat
+        console.log("Chat disabled");
+    }
+}
+
+// Function to enable chat input by focusing on it
+function enableChat() {
+    const chatInput = document.querySelector('.textbox');
+    if (chatInput) {
+        chatInput.focus(); // Puts focus on chat
+        console.log("Chat enabled");
     }
 }
 
 // Add event listener for key presses
 document.addEventListener('keydown', function (event) {
-    // Check for Escape key
-    if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) {
-        console.log("Escape pressed, disabling chat...");
-        simulateClick('#header');
+    const key = event.key;
+
+    // If Escape is pressed, disable chat
+    if (key === "Escape") {
         event.preventDefault();
+        disableChat();
         return;
     }
 
-    // Check for Enter key
-    if (event.key === "Enter" || event.keyCode === 13) {
-        console.log("Enter pressed, enabling chat...");
-        simulateClick('.battle-log');
+    // If Enter is pressed, enable chat
+    if (key === "Enter") {
         event.preventDefault();
+        enableChat();
         return;
     }
 
